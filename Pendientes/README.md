@@ -21,6 +21,12 @@ Cuatro documentos, de más a menos urgente:
 4. **[04-decisiones-del-equipo.md](./04-decisiones-del-equipo.md)** — preguntas que solo el
    equipo (o la universidad) puede responder: naming, marca, precio, responsable legal.
 
+Más una guía práctica, no un listado de huecos:
+
+5. **[05-guia-pruebas-locales.md](./05-guia-pruebas-locales.md)** — cómo pushear el repo a
+   GitHub, dar acceso al equipo, y que cualquier colaborador lo clone y pruebe la web en su
+   propia máquina contra un proyecto Supabase compartido.
+
 ## Cómo usar esta carpeta
 
 - Cuando resuelvas un punto, táchalo o muévelo a un `CHANGELOG.md` si el equipo lleva uno; no
