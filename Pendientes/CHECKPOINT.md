@@ -4,8 +4,31 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-18 · **Último commit:** `f7ae741` — docs: guía de pruebas
-locales y acceso del equipo al repo
+**Última actualización:** 2026-09-18 · **Último commit:** `e99b68a` — docs: actualiza
+CHECKPOINT.md con el último commit (sin commits de código nuevos desde entonces — ver nota
+abajo)
+
+## Nota de la última respuesta (no es un commit, es config local + estado del entorno)
+
+Se volvió a levantar `pnpm dev:web` en background (la sesión anterior había quedado colgada, el
+proceso ya no corría) — confirmado arriba en `http://localhost:3000`, cargando `.env.local`
+correctamente.
+
+Se detectó que **fuera de esta conversación ya se resolvió el bloqueante #1**: ahora existe
+remoto de GitHub (`https://github.com/Edstone5/emprende-unjbg`) y está sincronizado hasta
+`e99b68a` — cualquier colaborador ya puede clonar (paso 1 de
+[05-guia-pruebas-locales.md](./05-guia-pruebas-locales.md) queda resuelto).
+
+El usuario preguntó si es urgente elegir alguno de los addons que Namecheap ofrece junto al
+dominio (`emprendeunjbg.com`, ya en el carrito, coincide con lo asumido en el código — ver
+[04-decisiones-del-equipo.md](./04-decisiones-del-equipo.md)). Respuesta: no, solo el dominio
+hace falta. SSL/hosting/VPS/DNS premium no aplican porque el deploy es en Vercel (HTTPS
+automático); Business Email podría servir más adelante para `privacidad@`/`soporte@` pero
+depende de una decisión pendiente (responsable legal) — no es urgente ahora.
+
+**Sigue pendiente de confirmar (no verificado aún):** si las migraciones (`0001`–`0004`) y el
+seed ya se aplicaron en el proyecto Supabase real (`hvjfwncpjtsxpzodvyaa.supabase.co`). Si el
+catálogo o el registro fallan al probar la web, probablemente sea por eso.
 
 ## Estado actual
 
