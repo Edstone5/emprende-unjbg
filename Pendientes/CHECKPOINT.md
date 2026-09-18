@@ -4,8 +4,8 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-18 · **Último commit:** `84e3f3a` — feat: paridad móvil
-(fotos, suscripción) y soporte de servicios
+**Última actualización:** 2026-09-18 · **Último commit:** `3377080` — docs: carpeta
+Pendientes con guía de lo que falta y checkpoint
 
 ## Estado actual
 
