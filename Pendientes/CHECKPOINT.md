@@ -4,9 +4,8 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-18 · **Último commit:** `f7206e9` — docs: actualiza
-CHECKPOINT.md con el último commit (más el trabajo de esta respuesta, sin commitear aún — ver
-"Qué se hizo en esta respuesta" abajo)
+**Última actualización:** 2026-09-18 · **Último commit:** `f7ae741` — docs: guía de pruebas
+locales y acceso del equipo al repo
 
 ## Estado actual
 
