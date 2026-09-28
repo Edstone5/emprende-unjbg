@@ -4,8 +4,8 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-28 · **Último commit:** `3cc46c1` — feat(web): rediseña la
-interfaz al estilo PedidosYa con paleta propia (local, sin pushear — ver nota abajo)
+**Última actualización:** 2026-09-28 · **Último commit:** `cc50136` — docs: actualiza
+CHECKPOINT.md con el rediseño visual estilo PedidosYa (pusheado a `origin/main`)
 
 ## Nota de la última respuesta — rediseño visual estilo PedidosYa
 
@@ -48,9 +48,8 @@ sistema queda invisible sobre el fondo oscuro. Con la nueva paleta el fondo oscu
 saturado, así que el problema se nota más si alguien prueba con el SO en modo oscuro. Arreglarlo
 de verdad implica revisar cada componente, no es parte de este cambio.
 
-**Commits locales sin pushear:** el repo local quedó adelante de `origin/main` (los 2 commits de
-docs de la respuesta anterior + `3cc46c1` de este rediseño) — avisar antes de que alguien más
-clone, o pedir que se corra `git push`.
+**Pusheado:** el usuario pidió `git push` después de esta respuesta — `origin/main` ya está
+sincronizado hasta `cc50136`, no quedan commits locales pendientes de subir.
 
 ## Nota de la respuesta anterior (servidor + dominio)
 
