@@ -5,37 +5,28 @@ cualquier colaborador para clonar y correrla en la suya?**
 
 ## Respuesta corta
 
-**Sí, el código está listo para correr en local** (`pnpm lint`/`typecheck`/`build` pasan), pero
-faltan dos cosas que no son de código, sino de configuración de equipo, antes de que un
-colaborador pueda clonar y probar:
+**Sí, ya se puede probar en local, y de hecho ya está corriendo en esta máquina** ahora mismo en
+[http://localhost:3000](http://localhost:3000) (`.env.local` configurado contra un proyecto
+Supabase real). Para que **otro colaborador** clone y pruebe en la suya falta solo una cosa:
 
-1. **No existe repositorio remoto todavía.** Hay 5 commits en `main` en este equipo local, pero
-   `git remote -v` está vacío y este entorno no tiene `gh` CLI — nadie puede clonar algo que no
-   está en ningún servidor. Hace falta crear el repo en GitHub y pushear (paso 1 abajo).
-2. **No hay un proyecto Supabase compartido.** El README actual asume que cada quien crea su
-   propio proyecto Supabase gratuito — funciona para probar la UI, pero si dos personas del
-   equipo quieren probar el mismo flujo (uno publica un producto, otro lo aprueba como admin)
-   necesitan apuntar al **mismo** proyecto. Recomendado: un solo proyecto Supabase "dev"
-   compartido por todo el equipo (paso 3 abajo).
+1. ~~No existe repositorio remoto todavía~~ **Resuelto.** El repo ya está en GitHub:
+   [`github.com/Edstone5/emprende-unjbg`](https://github.com/Edstone5/emprende-unjbg) (privado),
+   sincronizado. Cualquiera con acceso ya puede clonar — paso 1 abajo es solo para dar acceso a
+   gente nueva, no hace falta crear el repo de nuevo.
+2. **Falta confirmar si hay un proyecto Supabase compartido para el equipo**, distinto del que
+   corre ahora mismo en esta máquina. El README asume que cada quien crea su propio proyecto
+   Supabase gratuito — funciona para probar la UI en solitario, pero si dos personas del equipo
+   quieren probar el mismo flujo (uno publica un producto, otro lo aprueba como admin) necesitan
+   apuntar al **mismo** proyecto. Recomendado: un solo proyecto Supabase "dev" compartido por todo
+   el equipo (paso 3 abajo) — **no está confirmado si esto ya se hizo** (ver
+   [CHECKPOINT.md](./CHECKPOINT.md)).
 
-## Paso 1 — Crear el repositorio en GitHub y pushear (lo hace quien tenga la cuenta del equipo)
+## Paso 1 — Dar acceso al repo de GitHub (ya existe, esto es solo para sumar gente)
 
-```bash
-gh repo create emprende-unjbg --private --source=. --remote=origin
-git push -u origin main
-```
-
-Si no tienes `gh` CLI: crea el repo vacío manualmente en github.com (sin README/licencia, para
-no chocar con lo que ya existe local) y luego:
-
-```bash
-git remote add origin https://github.com/<tu-organizacion-o-usuario>/emprende-unjbg.git
-git push -u origin main
-```
-
-Recomendado **privado** por ahora (hay decisiones sin cerrar y no es código listo para
-publicar). Luego, en GitHub → Settings → Collaborators, agrega a cada miembro del equipo (o
-crea un equipo/organización si van a ser varios repos).
+El repo ya existe y está pusheado, así que este paso ya no aplica para crearlo — solo para
+agregar colaboradores nuevos: en GitHub → Settings → Collaborators del repo
+[`Edstone5/emprende-unjbg`](https://github.com/Edstone5/emprende-unjbg), agrega a cada miembro
+del equipo (o crea una organización si van a ser varios repos).
 
 Los placeholders en [`.github/CODEOWNERS`](../.github/CODEOWNERS) (`@equipo-ui`,
 `@equipo-servidor`, `@equipo-qa`) hay que reemplazarlos por los usuarios reales de GitHub una
@@ -53,7 +44,7 @@ Requisitos en la máquina de cada persona:
   `package.json` fija `"packageManager": "pnpm@9.15.0"`)
 
 ```bash
-git clone https://github.com/<tu-organizacion-o-usuario>/emprende-unjbg.git
+git clone https://github.com/Edstone5/emprende-unjbg.git
 cd emprende-unjbg
 pnpm install
 ```

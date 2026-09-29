@@ -4,10 +4,22 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-28 · **Último commit:** `cc50136` — docs: actualiza
-CHECKPOINT.md con el rediseño visual estilo PedidosYa (pusheado a `origin/main`)
+**Última actualización:** 2026-09-28 · **Último commit:** ver `git log --oneline -1` (esta
+respuesta solo actualiza documentación, no código)
 
-## Nota de la última respuesta — rediseño visual estilo PedidosYa
+## Nota de la última respuesta — la guía de pruebas locales ya existía, se actualizó
+
+El usuario preguntó si ya había una guía para probar la web en local. Sí:
+**[05-guia-pruebas-locales.md](./05-guia-pruebas-locales.md)**, creada dos respuestas atrás.
+Estaba desactualizada en un punto — decía "no existe repositorio remoto todavía", pero eso se
+resolvió hace dos respuestas. Se corrigió esa sección y la de "Estado actual" más abajo en este
+mismo archivo (tenían la misma información vieja). Confirmado en esta respuesta, en vivo:
+`origin/main` sincronizado, `.env.local` existe, `pnpm dev:web` corriendo en
+`http://localhost:3000`. Lo único que sigue sin confirmar es si el proyecto Supabase real ya
+tiene las migraciones/seed aplicados (paso 3 de la guía) — no se verificó, sigue igual desde
+hace varias respuestas.
+
+## Nota de la respuesta anterior — rediseño visual estilo PedidosYa
 
 El usuario pidió que la interfaz web se pareciera a PedidosYa pero con otra paleta. Se cambió
 la paleta institucional (antes azul+dorado placeholder) por **violeta (`primary`) + coral
@@ -51,51 +63,28 @@ de verdad implica revisar cada componente, no es parte de este cambio.
 **Pusheado:** el usuario pidió `git push` después de esta respuesta — `origin/main` ya está
 sincronizado hasta `cc50136`, no quedan commits locales pendientes de subir.
 
-## Nota de la respuesta anterior (servidor + dominio)
-
-Se relevantó `pnpm dev:web` (había quedado colgado entre sesiones) y se confirmó que fuera de
-esta conversación ya se resolvió el bloqueante #1 de
-[05-guia-pruebas-locales.md](./05-guia-pruebas-locales.md): existe remoto de GitHub
-(`https://github.com/Edstone5/emprende-unjbg`). Sobre el dominio: se recomendó comprar solo
-`emprendeunjbg.com` (coincide con lo asumido en el código, ver
-[04-decisiones-del-equipo.md](./04-decisiones-del-equipo.md)) y **no** los addons de Namecheap
-(SSL/hosting/VPS/DNS no aplican con Vercel).
-
-**Sigue pendiente de confirmar (no verificado aún):** si las migraciones (`0001`–`0004`) y el
-seed ya se aplicaron en el proyecto Supabase real (`hvjfwncpjtsxpzodvyaa.supabase.co`). Si el
-catálogo o el registro fallan al probar la web, probablemente sea por eso.
-
 ## Estado actual
 
 - Monorepo funcional: `pnpm install`, `pnpm lint`, `pnpm typecheck` y
-  `pnpm --filter web build` pasan limpio. Nunca se corrió contra un proyecto Supabase real
-  (ver [03-calidad-y-riesgos.md](./03-calidad-y-riesgos.md)) — sigue siendo así, todavía nadie
-  lo probó contra datos reales.
+  `pnpm --filter web build` pasan limpio.
+- Esta máquina ya tiene `apps/web/.env.local` apuntando a un proyecto Supabase **real**
+  (`hvjfwncpjtsxpzodvyaa.supabase.co`) y `pnpm dev:web` corriendo en
+  [http://localhost:3000](http://localhost:3000) — pero **sigue sin confirmarse si las
+  migraciones `0001`–`0004` y el seed ya se aplicaron ahí** (ver nota de dos respuestas atrás,
+  más abajo). Nadie más del equipo lo ha probado todavía contra datos reales.
 - Web (Next.js 16): catálogo, auth, panel de emprendedor (crear negocio, publicar
   producto/servicio, reportar pago Yape), panel admin (aprobar/rechazar pagos), `/mi-cuenta`
-  con eliminación de cuenta, `/privacidad`, `/terminos`, `/eliminar-cuenta`.
+  con eliminación de cuenta, `/privacidad`, `/terminos`, `/eliminar-cuenta`. Rediseño visual
+  estilo PedidosYa (violeta+coral) aplicado — ver nota de la respuesta anterior.
 - Móvil (Expo/expo-router): mismas funcionalidades salvo panel admin y edición de
   publicaciones (ver huecos exactos en
   [02-funcionalidades-pendientes.md](./02-funcionalidades-pendientes.md)).
 - Base de datos: 4 migraciones (`0001`–`0004`) con RLS por rol, más `productos.tipo` para
   distinguir productos de servicios.
-- Repo git local con 5 commits en `main`, **sin remoto configurado todavía** (`git remote -v`
-  vacío; este entorno no tiene `gh` CLI instalado). Es el bloqueante #1 para que el equipo
-  pueda clonar — ver la guía nueva de abajo.
-
-## Qué se hizo en esta respuesta
-
-El usuario preguntó si ya se puede probar la web en local, pidió los pasos para que cualquier
-colaborador la clone y la corra, y un recordatorio de qué falta para desplegarla. Se creó
-**[05-guia-pruebas-locales.md](./05-guia-pruebas-locales.md)**: pasos exactos para (1) crear el
-repo en GitHub y pushear (no existe remoto — quien tenga la cuenta del equipo debe correr
-`gh repo create` o crearlo manual y `git remote add origin ...` + `git push -u origin main`,
-esto no lo pude hacer yo, no tengo `gh` CLI ni credenciales en este entorno), (2) que cada
-colaborador clone e instale (`git clone`, Node 20+, `corepack enable`), (3) crear **un solo
-proyecto Supabase compartido** (`emprende-unjbg-dev`, distinto del que se cree luego para
-producción) para que el equipo pruebe el mismo flujo entre varias cuentas, y (4) un checklist
-de prueba manual de punta a punta. Confirmé que `npx supabase` (CLI) funciona en este entorno
-sin instalación previa (`2.117.0`), útil para `db push` en vez de pegar SQL a mano.
+- Repo en GitHub: [`Edstone5/emprende-unjbg`](https://github.com/Edstone5/emprende-unjbg)
+  (privado), sincronizado con `main` local. El bloqueante #1 de la guía de pruebas locales
+  (crear el remoto) **ya está resuelto** — falta el proyecto Supabase compartido para el
+  equipo (paso 3 de la guía), eso no está confirmado.
 
 ## Qué falta (resumen — ver el detalle en esta misma carpeta)
 
