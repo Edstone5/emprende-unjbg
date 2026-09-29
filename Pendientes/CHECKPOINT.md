@@ -4,8 +4,8 @@
 > trabajo después de compactar o cerrar la conversación: pega el bloque **"Prompt para
 > continuar"** de abajo en una conversación nueva de Claude Code, en este mismo directorio.
 
-**Última actualización:** 2026-09-28 · **Último commit:** ver `git log --oneline -1` (esta
-respuesta solo actualiza documentación, no código)
+**Última actualización:** 2026-09-28 · **Último commit:** `9c4fd0b` — docs: actualiza la guía
+de pruebas locales y CHECKPOINT.md (repo ya en GitHub)
 
 ## Nota de la última respuesta — la guía de pruebas locales ya existía, se actualizó
 
